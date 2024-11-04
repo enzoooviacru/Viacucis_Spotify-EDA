@@ -431,6 +431,7 @@ plt.show()
 ```
 - Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
   The top 10 frequently appearing artists all have much more playlists than charts.
+```
 
 ## Author
 #### Lorenzo G. Viacrucis
