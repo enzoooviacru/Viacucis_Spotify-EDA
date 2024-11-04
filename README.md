@@ -206,6 +206,14 @@ print("The number of outliers in 'Artist_count column' is:",artistoutliers) #Pri
 ```
 <img width="233" alt="14" src="https://github.com/user-attachments/assets/5b069e9a-a1c0-4879-b320-30658c09b805">
 
+```
+- What are the mean, median, and standard deviation of the streams column?
+  The mean, median, and standard deviation of the streams column is 468922407.2521525, 263453310.0, and 523981505.32150424 respectively
+
+- What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
+  Since the data is for streams from 2023, it is only natural that songs released after 2020 would have the highest count. Songs with only 1 artist also had the most count.   this is also natural as a large part of the data come from indie artists. There are 180 outliers in the 'Released Year' column and 24 outliers in the 'Artist_count'         column.
+```
+
 ### Top Performers
 ```python
 #Sorting the cleaned data by number of streams from highest to lowest
@@ -223,6 +231,14 @@ top5frequent = final['Artist'].value_counts().head().reset_index()
 top5frequent
 ```
 <img width="89" alt="16" src="https://github.com/user-attachments/assets/6ba3dd13-6d9f-485a-b0e6-1942d52768d7">
+
+```
+- Which track has the highest number of streams? Display the top 5 most streamed tracks.
+  The top 5 most streamed tracks is "Shape of You" by Ed Sheeran with 3.562544e+09 streams, "Sunflower" by Post Malone, Swae Lee with 2.808097e+09 streams, "One Dance" by     Drake, WizKid, Kyla with 2.713922e+09 streams, "STAY" by Justin Bieber, The Kid Laroi	with 2.665344e+09, and "Believer" by Imagine Dragons with 2.594040e+09 streams.
+
+- Who are the top 5 most frequent artists based on the number of tracks in the dataset?
+  Top 5 most frequent artists based on number of tracks is Taylor Swift with 29 tracks, SZA with 17 tracks, Bad Bunny with 16 tracks, The Weeknd with 14 tracks, and Harry     Styles with 12 tracks
+```
 
 ### Temporal Trends
 ```python
@@ -269,7 +285,11 @@ plt.tight_layout()
 plt.show()
 ```
 <img width="569" alt="19new" src="https://github.com/user-attachments/assets/fa4c33b4-8042-4f3d-a56e-08c5697598e2">
-As seen from the graph, there is a spike in Jauary and May with May having more tracks by a small amount. There is no noticeable pattern in which month the track is released.
+
+```
+- Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
+  As seen from the graph, there is a spike in Jauary and May with May having more tracks by a small amount. There is no noticeable pattern in which month the track is         released.
+```
 
 ### Genre and Music Characteristics
 ```python
@@ -284,9 +304,14 @@ plt.title("Correlation Between Streams and Musical Attributes") #Setting a title
 plt.show()
 ```
 <img width="378" alt="20new" src="https://github.com/user-attachments/assets/f6c68ada-06e4-4e74-a4f7-5fb68f9fe25a">
-As seen from the generated heatmap, the correlation between Streams and BPM, Danceability%, Energy%, Valence%, Acousticness% are all negative and are very close to 0. This means that there is little to no relationship or no relationship at all between stream and musical attributes. However, even though by a small amount, Danceability% influences streams the most.
 
-Danceability% and Energy% have a very weak correlation of 0.16. Similarly, Valence% and Acousticness% also have a very weak correlation of -0.062.
+```
+- Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
+  As seen from the generated heatmap, the correlation between Streams and BPM, Danceability%, Energy%, Valence%, Acousticness% are all negative and are very close to 0.       This means that there is little to no relationship or no relationship at all between stream and musical attributes. However, even though by a small amount, Danceability%    influences streams the most.
+
+- Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
+  Danceability% and Energy% have a very weak correlation of 0.16. Similarly, Valence% and Acousticness% also have a very weak correlation of -0.062.
+```
 
 ### Platform Popularity
 ```python
@@ -320,7 +345,14 @@ plt.legend()
 plt.show()
 ```
 <img width="451" alt="22" src="https://github.com/user-attachments/assets/fa5424f3-66e7-456a-a933-4d9ac1a703de">
-Spotify dominates over Deezer and Apple in both overall tracks and top 5 tracks.
+
+```
+- How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare?
+  Which platform seems to favor the most popular tracks?
+
+  Spotify dominates over Deezer and Apple in both overall tracks and top 5 tracks.
+
+```
 
 ### Advanced Analysis
 ```python
@@ -351,7 +383,11 @@ plt.tight_layout()
 plt.show()
 ```
 <img width="526" alt="23" src="https://github.com/user-attachments/assets/26270de2-4b7b-4a6d-9901-cd98f40120dc">
-From the bar graph generated, in both major and minor mode, the key of C# garnered the most streams. This can be due to the a high number of tracks having the key of C# or songs that are in the key of C# sound more pleasing compared to other keys therefore making people listen to them more.
+
+```
+- Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
+  From the bar graph generated, in both major and minor mode, the key of C# garnered the most streams. This can be due to the a high number of tracks having the key of C#     or songs that are in the key of C# sound more pleasing compared to other keys therefore making people listen to them more.
+```
 
 ```python
 #Getting the index of the top 10 most frequent appearing artists and turning it into a list
@@ -391,7 +427,14 @@ plt.tight_layout()
 plt.show()
 ```
 <img width="546" alt="24" src="https://github.com/user-attachments/assets/d6f07da3-50fd-41e1-b2de-5fa1f2542e69">
-The top 10 frequently appearing artists all have much more playlists than charts.
+
+```
+- Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
+  The top 10 frequently appearing artists all have much more playlists than charts.
+
+## Author
+#### Lorenzo G. Viacrucis
+#### 2ECE-D
 
 ## References
 * https://www.youtube.com/watch?v=xi0vhXFPegw
