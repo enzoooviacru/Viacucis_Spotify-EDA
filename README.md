@@ -529,23 +529,22 @@ frequently appearing artists in playlists or charts.
 #### 2ECE-D
 
 ## References
-* https://www.youtube.com/watch?v=xi0vhXFPegw
-* https://sparkbyexamples.com/pandas/use-pandas-to-numeric-function/#:~:text=Key%20Points%20%E2%80%93-,Pandas.,errors%2C%20coercion%2C%20and%20downcasting.
-* https://www.geeksforgeeks.org/how-to-rename-columns-in-pandas-dataframe/
-* https://careerfoundry.com/en/blog/data-analytics/how-to-find-outliers/#:~:text=Finding%20outliers%20using%20statistical%20methods,-Since%20the%20data&text=Using%20the%20IQR%2C%20the%20outlier,Q1%20(Q3%E2%80%93Q1).
-* https://sparkbyexamples.com/pandas/use-pandas-to-numeric-function/#:~:text=Key%20Points%20%E2%80%93-,Pandas.,errors%2C%20coercion%2C%20and%20downcasting.
-* https://www.geeksforgeeks.org/how-to-rename-columns-in-pandas-dataframe/
-* https://stackoverflow.com/questions/44548721/remove-row-with-null-value-from-pandas-data-frame
-* https://www.w3schools.com/python/pandas/ref_df_drop_duplicates.asp#:~:text=The%20drop_duplicates()%20method%20removes,considered%20when%20looking%20for%20duplicates.
-* https://stackoverflow.com/questions/56947333/how-to-remove-commas-from-all-the-column-in-pandas-at-once
-* https://www.freecodecamp.org/news/python-lambda-function-explained/
-* https://careerfoundry.com/en/blog/data-analytics/how-to-find-outliers/#:~:text=Finding%20outliers%20using%20statistical%20methods,-Since%20the%20data&text=Using%20the%20IQR%2C%20the%20outlier,Q1%20(Q3%E2%80%93Q1).
-* https://mode.com/python-tutorial/counting-and-plotting-in-python
-* https://www.datacamp.com/tutorial/seaborn-heatmaps?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720824&utm_adgroupid=157156376311&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=684592140434&utm_targetid=dsa-2218886984100&utm_loc_interest_ms=&utm_loc_physical_ms=9060961&utm_content=&utm_campaign=230119_1-sea~dsa~tofu_2-b2c_3-row-p2_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na-oct24&gad_source=1&gclid=Cj0KCQjwm5e5BhCWARIsANwm06hpydYDHP2QpYkRfdNBYJR-0BWhWo4WwUmeDdvOwoDdkaMqGI4iRpcaAkmMEALw_wcB
-* https://sparkbyexamples.com/pandas/pandas-convert-float-to-integer-type/#:~:text=Use%20astype()%20to%20convert,them%20and%20applying%20astype()%20.
-* https://www.geeksforgeeks.org/create-a-grouped-bar-plot-in-matplotlib/
-* https://sparkbyexamples.com/pandas/convert-pandas-index-to-list/#:~:text=To%20convert%20an%20index%20to,()%20and%20list()%20functions.
-* https://www.analyticsvidhya.com/blog/2020/03/groupby-pandas-aggregating-data-python/
-* https://saturncloud.io/blog/how-to-select-rows-from-a-dataframe-based-on-list-values-in-a-column-in-pandas/#:~:text=To%20select%20rows%20from%20a%20DataFrame%20based%20on%20a%20list,to%20select%20the%20desired%20rows.
-* https://stackoverflow.com/questions/12555323/how-to-add-a-new-column-to-an-existing-dataframe
-* https://www.w3schools.com/python/pandas/ref_df_reindex.asp#:~:text=The%20reindex()%20method%20allows,indexes%2C%20and%20the%20columns%20labels.&text=Note%3A%20The%20values%20are%20set,the%20same%20as%20the%20old.
+* Rob Mulla. (2021, December 31). Exploratory Data Analysis with Pandas Python [Video]. YouTube.https://www.youtube.com/watch?v=xi0vhXFPegw
+* Malli. (2024, March 28). Use pandas.to_numeric() Function. Spark by Examples. https://sparkbyexamples.com/pandas/use-pandas-to-numeric-function/#:~:text=Key%20Points%20%E2%80%93-,Pandas.,errors%2C%20coercion%2C%20and%20downcasting.
+* GeeksforGeeks. (2024, June 26). How to rename columns in Pandas DataFrame.GeeksforGeeks.https://www.geeksforgeeks.org/how-to-rename-columns-in-pandas-dataframe/
+* Kleppen, E. (2023, May 11). How to find outliers using Python [Step-by-Step guide]. CareerFoundry. https://careerfoundry.com/en/blog/data-analytics/how-to-find-outliers/#:~:text=Finding%20outliers%20using%20statistical%20methods,-Since%20the%20data&text=Using%20the%20IQR%2C%20the%20outlier,Q1%20(Q3%E2%80%93Q1).
+* Malli. (2024b, March 28). Use pandas.to_numeric() Function. Spark by {Examples}. https://sparkbyexamples.com/pandas/use-pandas-to-numeric-function/#:~:text=Key%20Points%20%E2%80%93-,Pandas.,errors%2C%20coercion%2C%20and%20downcasting.
+* GeeksforGeeks. (2024b, June 26). How to rename columns in Pandas DataFrame. GeeksforGeeks. https://www.geeksforgeeks.org/how-to-rename-columns-in-pandas-dataframe/
+* Remove row with null value from pandas data frame. (n.d.). Stack Overflow. https://stackoverflow.com/questions/44548721/remove-row-with-null-value-from-pandas-data-frame
+* W3Schools.com. (n.d.). https://www.w3schools.com/python/pandas/ref_df_drop_duplicates.asp#:~:text=The%20drop_duplicates()%20method%20removes,considered%20when%20looking%20for%20duplicates.
+* How to remove commas from ALL the column in pandas at once. (n.d.). Stack Overflow. https://stackoverflow.com/questions/56947333/how-to-remove-commas-from-all-the-column-in-pandas-at-once
+* freeCodeCamp. (2022, October 25). How the Python Lambda Function Works – Explained with Examples. freeCodeCamp.org. https://www.freecodecamp.org/news/python-lambda-function-explained/
+* Kleppen, E. (2023b, May 11). How to find outliers using Python [Step-by-Step guide]. CareerFoundry. https://careerfoundry.com/en/blog/data-analytics/how-to-find-outliers/#:~:text=Finding%20outliers%20using%20statistical%20methods,-Since%20the%20data&text=Using%20the%20IQR%2C%20the%20outlier,Q1%20(Q3%E2%80%93Q1).
+* Pandas .values_count() & .plot() | Python Analysis Tutorial - Mode. (2016, May 23). Mode Resources. https://mode.com/python-tutorial/counting-and-plotting-in-python
+* Nelamali, N. (2024, October 15). Pandas convert float to integer in DataFrame. Spark by {Examples}. https://sparkbyexamples.com/pandas/pandas-convert-float-to-integer-type/#:~:text=Use%20astype()%20to%20convert,them%20and%20applying%20astype()%20.
+* GeeksforGeeks. (2020, December 17). Create a grouped bar plot in Matplotlib. GeeksforGeeks. https://www.geeksforgeeks.org/create-a-grouped-bar-plot-in-matplotlib/
+* Nelamali, N. (2024a, March 27). Convert Pandas index to list. Spark by {Examples}. https://sparkbyexamples.com/pandas/convert-pandas-index-to-list/#:~:text=To%20convert%20an%20index%20to,()%20and%20list()%20functions.
+* Bhandari, A. (2024b, October 18). Pandas Groupby for data aggregation. Analytics Vidhya. https://www.analyticsvidhya.com/blog/2020/03/groupby-pandas-aggregating-data-python/
+* How to Select Rows from a DataFrame Based on List Values in a Column in Pandas | Saturn Cloud Blog. (2023, October 28). https://saturncloud.io/blog/how-to-select-rows-from-a-dataframe-based-on-list-values-in-a-column-in-pandas/#:~:text=To%20select%20rows%20from%20a%20DataFrame%20based%20on%20a%20list,to%20select%20the%20desired%20rows.
+* How to add a new column to an existing DataFrame. (n.d.). Stack Overflow. https://stackoverflow.com/questions/12555323/how-to-add-a-new-column-to-an-existing-dataframe
+* W3Schools.com. (n.d.-b). https://www.w3schools.com/python/pandas/ref_df_reindex.asp#:~:text=The%20reindex()%20method%20allows,indexes%2C%20and%20the%20columns%20labels.&text=Note%3A%20The%20values%20are%20set,the%20same%20as%20the%20old.
