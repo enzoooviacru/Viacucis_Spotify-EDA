@@ -113,8 +113,7 @@ df.head()
 </p>
 
 ```python
-#Upon checking for the data type of each column again, 'streams', 'in_deezer_playlists' and 'in_shazam_charts'
-are now of data type float
+#Upon checking for the data type of each column again, 'streams', 'in_deezer_playlists' and 'in_shazam_charts' are now of data type float
 df.dtypes
 ```
 <p align="center">
