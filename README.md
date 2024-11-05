@@ -1,5 +1,8 @@
 # Spotify Exploratory Data Analysis on Most Streamed Song of 2023
 
+  ![baby-imissyouuu](https://github.com/user-attachments/assets/8d4073ea-533b-47b9-983c-ad73906d21a1)
+
+
 ## Overview
 #### This repository shows an interpretation and visualization of the data provided in the `spotify-2023.csv` file for better understanding between the relationship of different data which can provide an insight on what type of song can garner more streams.
 
@@ -14,6 +17,7 @@ import seaborn as sns
 ## Guide Questions
 ### Overview of Dataset
 ```
+
 How many rows and columns does the dataset contain?
 What are the data types of each column? Are there any missing values?
 ```
@@ -34,17 +38,20 @@ Does the number of tracks released per month follow any noticeable patterns? Whi
 ```
 ### Genre and Music Characteristics
 ```
-Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
+Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%.
+Which attributes seem to influence streams the most?
 Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
 ```
 ### Platform Popularity
 ```
-How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
+How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare?
+Which platform seems to favor the most popular tracks?
 ```
 ### Advanced Analysis
 ```
 Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
-Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
+Do certain genres or artists consistently appear in more playlists or charts?
+Perform an analysis to compare the most frequently appearing artists in playlists or charts.
 ```
 
 ## Code Execution and Results
@@ -54,57 +61,74 @@ Do certain genres or artists consistently appear in more playlists or charts? Pe
 df = pd.read_csv('spotify-2023.csv', encoding='latin1')
 df.head()
 ```
-<img width="1373" alt="1" src="https://github.com/user-attachments/assets/b2407d40-346d-4634-bff2-0eeb7cbe3777">
+<p align="center">
+  <img width="1373" alt="1" src="https://github.com/user-attachments/assets/b2407d40-346d-4634-bff2-0eeb7cbe3777">
+</p>
 
 ```python
 #Checking the data for any null values
 df.isnull().sum()
 ```
-<img width="119" alt="2" src="https://github.com/user-attachments/assets/bb1e7bc2-ba6b-4ace-b9e0-7d060ef16080">
+<p align="center">
+  <img width="225" alt="2" src="https://github.com/user-attachments/assets/bb1e7bc2-ba6b-4ace-b9e0-7d060ef16080">
+</p>
 
 ```python
 #Checking each column's data type
 df.dtypes
 ```
-<img width="137" alt="3" src="https://github.com/user-attachments/assets/c9fdc10c-35ed-4950-b136-4970101c51e7">
+<p align="center">
+  <img width="225" alt="3" src="https://github.com/user-attachments/assets/c9fdc10c-35ed-4950-b136-4970101c51e7">
+</p>
 
 ```python
 #Checking inital rows and columns before cleaning the data
 df.shape
 ```
-<img width="46" alt="4" src="https://github.com/user-attachments/assets/03df9ed5-f133-4334-ba32-79c7db402e42">
+<p align="center">
+  <img width="300" alt="4" src="https://github.com/user-attachments/assets/03df9ed5-f133-4334-ba32-79c7db402e42">
+</p>
 
 ```python
-#Upon checking the data types of each column, it is noted that columns 'streams', 'in_deezer_playlists' and 'in_shazam_charts' are of data type object
+#Upon checking the data types of each column, it is noted that columns 'streams', 'in_deezer_playlists' and'in_shazam_charts' are of data type object
 #Since in_deezer_playlists and in_shazam_charts are object data type due to commas, remove the commas using replace function
 df['in_deezer_playlists']=df['in_deezer_playlists'].str.replace(',','')
 df['in_shazam_charts']=df['in_shazam_charts'].str.replace(',','')
 df.head()
 ```
-<img width="1373" alt="5" src="https://github.com/user-attachments/assets/1087a958-8e20-44b6-b3b0-b363ce88654c">
+<p align="center">
+  <img width="1373" alt="5" src="https://github.com/user-attachments/assets/1087a958-8e20-44b6-b3b0-b363ce88654c">
+</p>
 
 ```python
 #However removing the commas does not change its data type
-#To change the data type use 'pd.to_numeric' for the string data type to float in the 'streams' column, and '.astype(float)' to convert the column to float data type
+#To change the data type use 'pd.to_numeric' for the string data type to float in the 'streams' column, and .astype(float) to convert the column to float data type
 #Convert data type object to float
 df['streams'] = pd.to_numeric(df['streams'], errors='coerce') #Converting streams column to float data type
 df['in_deezer_playlists'] = df['in_deezer_playlists'].astype(float) #Converting 'in_deezer_playlists' to float data type
 df['in_shazam_charts'] = df['in_shazam_charts'].astype(float) #Converting 'in_shazam_charts' to float data type
 df.head()
 ```
-<img width="1373" alt="6" src="https://github.com/user-attachments/assets/d06887bd-e674-46e9-b89e-dbea5edd6fdd">
+<p align="center">
+  <img width="1373" alt="6" src="https://github.com/user-attachments/assets/d06887bd-e674-46e9-b89e-dbea5edd6fdd">
+</p>
 
 ```python
-#Upon checking for the data type of each column again, 'streams', 'in_deezer_playlists' and 'in_shazam_charts' are now of data type float
+#Upon checking for the data type of each column again, 'streams', 'in_deezer_playlists' and 'in_shazam_charts'
+are now of data type float
 df.dtypes
 ```
-<img width="138" alt="7" src="https://github.com/user-attachments/assets/d955fc75-f42f-49a6-9b63-f16c60cf7fd6">
+<p align="center">
+  <img width="225" alt="7" src="https://github.com/user-attachments/assets/d955fc75-f42f-49a6-9b63-f16c60cf7fd6">
+</p>
 
 ```python
 #Checking for any new null values after converting data type to float
 df.isnull().sum()
 ```
-<img width="120" alt="8" src="https://github.com/user-attachments/assets/2d5e04f5-6c86-4ff1-ab40-007dbc2103c1">
+<p align="center">
+  <img width="225" alt="8" src="https://github.com/user-attachments/assets/2d5e04f5-6c86-4ff1-ab40-007dbc2103c1">
+</p>
 
 ```python
 #Removing rows with duplicates in columns 'track_name' and 'artist(s)_name'
@@ -112,7 +136,9 @@ df = df.drop_duplicates(['track_name','artist(s)_name'])
 df
 #4 rows that have the same track_name and artist(s)_name have been removed, the dataframe now has a shape of 949 rows × 24 columns
 ```
-<img width="1373" alt="9" src="https://github.com/user-attachments/assets/97883956-5266-4bbb-88a0-7bd4971e4a9e">
+<p align="center">
+  <img width="1373" alt="9" src="https://github.com/user-attachments/assets/97883956-5266-4bbb-88a0-7bd4971e4a9e">
+</p>
 
 ```python
 #Removing all rows with null values 
@@ -120,7 +146,9 @@ clean= df.dropna()
 clean
 #The dataframe now has a shape of 813 rows × 24 columns after removing all rows will null values
 ```
-<img width="1384" alt="10" src="https://github.com/user-attachments/assets/f10c295c-3c0a-40fc-b793-69dc118ca8b4">
+<p align="center">
+  <img width="1384" alt="10" src="https://github.com/user-attachments/assets/f10c295c-3c0a-40fc-b793-69dc118ca8b4">
+</p>
 
 ```python
 #Renaming columns for better readability
@@ -136,7 +164,9 @@ clean = clean.rename(columns={'track_name':'Track_name','artist(s)_name':'Artist
 final = clean.reset_index(drop=True)
 final
 ```
-<img width="1206" alt="11" src="https://github.com/user-attachments/assets/0f4ca7a6-5a0a-4b61-abe1-81f4fd4fb38d">
+<p align="center">
+  <img width="1206" alt="11" src="https://github.com/user-attachments/assets/0f4ca7a6-5a0a-4b61-abe1-81f4fd4fb38d">
+</p>
 
 ### Overview of Dataset
 ```
@@ -144,8 +174,9 @@ final
   The dataset had 953 rows × 24 columns before cleaning and 813 rows x 24 columns after cleaning.
 
 - What are the data types of each column? Are there any missing values?
-  Before cleaning the dataset, all columns are int64 data type except for 'track_name', 'artist(s)_name', 'streams',
-  'in_deezer_playlists', 'in_shazam_charts', 'key', and 'mode' are of object data type.
+  Before cleaning the dataset, all columns are int64 data type except for 'track_name', 'artist(s)_name',
+  'streams', 'in_deezer_playlists', 'in_shazam_charts', 'key', and 'mode' are of object data type.
+
 ```
 
 ### Basic Descriptive Statistics
@@ -153,7 +184,9 @@ final
 #Using the .describe() function can give us basic descriptive statistics of each column
 final.describe()
 ```
-<img width="1126" alt="12" src="https://github.com/user-attachments/assets/9b43239d-6ab3-40e5-a07a-ab691ddfb752">
+<p align="center">
+  <img width="1126" alt="12" src="https://github.com/user-attachments/assets/9b43239d-6ab3-40e5-a07a-ab691ddfb752">
+</p>
 
 ```python
 #We can also calculate the mean, median, and standard deviation of the streams column using the .mean(), .median(), and .std() function respectively
@@ -161,8 +194,10 @@ print("The mean of streams is:", final['Streams'].mean()) #Printing the mean of 
 print("The median of streams is:", final['Streams'].median()) #Printing the median of 'Streams' column
 print("The standard deviation of streams is:", final['Streams'].std()) #Printing the standard deviation of 'Streams' column
 ```
-<img width="230" alt="13" src="https://github.com/user-attachments/assets/557bc134-25ba-41ae-b577-a59f5a038d7c">
-
+<p align="center">
+  <img width="550" alt="13" src="https://github.com/user-attachments/assets/557bc134-25ba-41ae-b577-a59f5a038d7c">
+</p>
+  
 ```python
 #Setting the figure size of the plots
 plt.figure(figsize=(12,5))
@@ -184,19 +219,18 @@ plt.ylabel("Count") #Setting y-label
 plt.grid(axis = 'y',linestyle = '--', linewidth = 0.5) #Adding a grid to the graph 
 plt.tight_layout()
 ```
-<img width="626" alt="17" src="https://github.com/user-attachments/assets/d22f9fd1-482f-489b-9e9b-0471bee71ae3">
+<p align="center">
+  <img width="626" alt="17" src="https://github.com/user-attachments/assets/d22f9fd1-482f-489b-9e9b-0471bee71ae3">
+</p>
 
 ```python
 #Creating a function for calculation of outliers
 def findoutlier(final):
-    q1=final.quantile(0.25)<img width="626" alt="17" src="https://github.com/user-attachments/assets/ee97a1c9-52e7-4fb4-b62f-d8fb23b4615b">
-
+    q1=final.quantile(0.25)
     q3=final.quantile(0.75)
     iqr=q3-q1
-    outliers = final[((final<(q1<img width="626" alt="17" src="https://github.com/user-attachments/assets/fd9ca4cc-ff59-4e9b-a2ef-4349eedf43a0">
--1.5*iqr)) | (final>(q3+1.5*iqr)))].shape[0]
-    return outliers<img width="626" alt="17" src="https://github.com/user-attachments/assets/00eb9f85-770c-4f04-8eb7-0b590d49996a">
-
+    outliers = final[((final<(q1-1.5*iqr)) | (final>(q3+1.5*iqr)))].shape[0] #Shape[0] gives only the number of rows
+    return outliers
 
 yearoutliers = findoutlier(final['Released_year']) #Calculating the outliers for 'Released_year'
 artistoutliers = findoutlier(final['Artist_count']) #Calculating the outliers for 'Artist_count'
@@ -204,14 +238,22 @@ artistoutliers = findoutlier(final['Artist_count']) #Calculating the outliers fo
 print("The number of outliers in 'Released year column' is:",yearoutliers) #Printing outliers for 'Released_year' column
 print("The number of outliers in 'Artist_count column' is:",artistoutliers) #Printing outliers for 'Artist_count' column
 ```
-<img width="233" alt="14" src="https://github.com/user-attachments/assets/5b069e9a-a1c0-4879-b320-30658c09b805">
+<p align="center">
+  <img width="650" alt="14" src="https://github.com/user-attachments/assets/5b069e9a-a1c0-4879-b320-30658c09b805">
+</p>
 
 ```
 - What are the mean, median, and standard deviation of the streams column?
-  The mean, median, and standard deviation of the streams column is 468922407.2521525, 263453310.0, and 523981505.32150424 respectively
+
+    The mean, median, and standard deviation of the streams column is:
+  468922407.2521525, 263453310.0, and 523981505.32150424 respectively.
 
 - What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
-  Since the data is for streams from 2023, it is only natural that songs released after 2020 would have the highest count. Songs with only 1 artist also had the most count.   this is also natural as a large part of the data come from indie artists. There are 180 outliers in the 'Released Year' column and 24 outliers in the 'Artist_count'         column.
+
+    Since the data is for streams from 2023, it is only natural that songs released after 2020 would have the highest
+  count. Songs with only 1 artist also had the most count. This is also natural as a large part of the data come from
+  indie artists. There are 180 outliers in the 'Released Year' column and 24 outliers in the 'Artist_count' column.
+
 ```
 
 ### Top Performers
@@ -221,23 +263,40 @@ print("The number of outliers in 'Artist_count column' is:",artistoutliers) #Pri
 top5streams = final.sort_values(by = 'Streams', ascending = False).head().reset_index(drop=True)
 top5streams
 ```
-<img width="1204" alt="15" src="https://github.com/user-attachments/assets/37a4717c-e35c-4dad-b85d-9c73b5a28176">
+<p align="center">
+  <img width="550" alt="topstreams" src="https://github.com/user-attachments/assets/7c26a640-8e82-4269-9c4d-229bdb309a1f">
+</p>
 
 ```python
 #Using .value_counts() function to count how many times each artist shows up in the 'Artist' column
 #Using .head() function to display only the first 5 rows
-#Using .reset_index() function to convert teh data into a dataframe
+#Using .reset_index() function to convert the data into a dataframe
 top5frequent = final['Artist'].value_counts().head().reset_index()
 top5frequent
 ```
-<img width="89" alt="16" src="https://github.com/user-attachments/assets/6ba3dd13-6d9f-485a-b0e6-1942d52768d7">
+<p align="center">
+  <img width="300" alt="16" src="https://github.com/user-attachments/assets/6ba3dd13-6d9f-485a-b0e6-1942d52768d7">
+</p>
 
 ```
 - Which track has the highest number of streams? Display the top 5 most streamed tracks.
-  The top 5 most streamed tracks is "Shape of You" by Ed Sheeran with 3.562544e+09 streams, "Sunflower" by Post Malone, Swae Lee with 2.808097e+09 streams, "One Dance" by     Drake, WizKid, Kyla with 2.713922e+09 streams, "STAY" by Justin Bieber, The Kid Laroi	with 2.665344e+09, and "Believer" by Imagine Dragons with 2.594040e+09 streams.
+
+            The top 5 most streamed tracks is:
+  1) "Shape of You" by Ed Sheeran with 3.562544e+09 streams
+  2) "Sunflower" by Post Malone, Swae Lee with 2.808097e+09 streams
+  3) "One Dance" by Drake, WizKid, Kyla with 2.713922e+09 streams
+  4) "STAY" by Justin Bieber, The Kid Laroi	with 2.665344e+09
+  5) "Believer" by Imagine Dragons with 2.594040e+09 streams
 
 - Who are the top 5 most frequent artists based on the number of tracks in the dataset?
-  Top 5 most frequent artists based on number of tracks is Taylor Swift with 29 tracks, SZA with 17 tracks, Bad Bunny with 16 tracks, The Weeknd with 14 tracks, and Harry     Styles with 12 tracks
+
+  Top 5 most frequent artists based on number of tracks is
+                1) Taylor Swift with 29 tracks
+                2) SZA with 17 tracks
+                3) Bad Bunny with 16 tracks
+                4) The Weeknd with 14 tracks
+                5) Harry Styles with 12 tracks
+
 ```
 
 ### Temporal Trends
@@ -260,7 +319,9 @@ plt.grid(axis = 'y', linestyle = '--', linewidth = 0.5) #Adding a grid to the gr
 plt.tight_layout()
 plt.show()
 ```
-<img width="565" alt="18new" src="https://github.com/user-attachments/assets/2ad48f9b-884e-424f-aaa7-bee401b06f43">
+<p align="center">
+  <img width="565" alt="18new" src="https://github.com/user-attachments/assets/2ad48f9b-884e-424f-aaa7-bee401b06f43">
+</p>
 
 ```python
 #Getting how many tracks were released each month and sorting its index from 1-12 (January to December)
@@ -284,11 +345,16 @@ plt.grid(axis = 'y',linestyle = '--', linewidth = 0.5) #Adding a grid to the grp
 plt.tight_layout()
 plt.show()
 ```
-<img width="569" alt="19new" src="https://github.com/user-attachments/assets/fa4c33b4-8042-4f3d-a56e-08c5697598e2">
+<p align="center">
+  <img width="569" alt="19new" src="https://github.com/user-attachments/assets/fa4c33b4-8042-4f3d-a56e-08c5697598e2">
+</p>
 
 ```
 - Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
-  As seen from the graph, there is a spike in Jauary and May with May having more tracks by a small amount. There is no noticeable pattern in which month the track is         released.
+
+    As seen from the graph, there is a spike in Jauary and May with May having more tracks by a small amount. There is
+  no noticeable pattern in which month the track is released.
+
 ```
 
 ### Genre and Music Characteristics
@@ -303,14 +369,24 @@ sns.heatmap(hm, cmap = 'viridis', vmax = 1, vmin = -1, annot = True) #Using heat
 plt.title("Correlation Between Streams and Musical Attributes") #Setting a title for the graph 
 plt.show()
 ```
-<img width="378" alt="20new" src="https://github.com/user-attachments/assets/f6c68ada-06e4-4e74-a4f7-5fb68f9fe25a">
+<p align="center">
+  <img width="378" alt="20new" src="https://github.com/user-attachments/assets/f6c68ada-06e4-4e74-a4f7-5fb68f9fe25a">
+</p>
 
 ```
-- Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
-  As seen from the generated heatmap, the correlation between Streams and BPM, Danceability%, Energy%, Valence%, Acousticness% are all negative and are very close to 0.       This means that there is little to no relationship or no relationship at all between stream and musical attributes. However, even though by a small amount, Danceability%    influences streams the most.
+- Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%.
+  Which attributes seem to influence streams the most?
+
+    As seen from the generated heatmap, the correlation between Streams and BPM, Danceability%, Energy%, Valence%,
+  Acousticness% are all negative and are very close to 0. This means that there is little to no relationship or no
+  relationship at all between streams and musical attributes. However, even though by a small amount, Danceability%
+  influences streams the most.
 
 - Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
-  Danceability% and Energy% have a very weak correlation of 0.16. Similarly, Valence% and Acousticness% also have a very weak correlation of -0.062.
+
+    Danceability% and Energy% have a very weak correlation of 0.16. Similarly, Valence% and Acousticness%
+  also have a very weak correlation of -0.062.
+
 ```
 
 ### Platform Popularity
@@ -329,7 +405,9 @@ plt.title("Comparison of Tracks in Spotify, Apple, and Deezer Playlists") #Setti
 plt.legend() #Adding a legend
 plt.show()
 ```
-<img width="446" alt="21" src="https://github.com/user-attachments/assets/1a2f439b-6a10-459c-a6f7-60018cff4832">
+<p align="center">
+  <img width="446" alt="21" src="https://github.com/user-attachments/assets/1a2f439b-6a10-459c-a6f7-60018cff4832">
+</p>  
 
 ```python
 #Getting the amount of tracks in spotify_playlists, Deezer_playlists, and apple_playlists only from the top 5 songs based on streams
@@ -344,13 +422,15 @@ plt.title("Comparison of Top Tracks in Spotify, Apple, and Deezer Playlists") #S
 plt.legend()
 plt.show()
 ```
-<img width="451" alt="22" src="https://github.com/user-attachments/assets/fa5424f3-66e7-456a-a933-4d9ac1a703de">
+<p align="center">
+  <img width="451" alt="22" src="https://github.com/user-attachments/assets/fa5424f3-66e7-456a-a933-4d9ac1a703de">
+</p>
 
 ```
 - How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare?
   Which platform seems to favor the most popular tracks?
 
-  Spotify dominates over Deezer and Apple in both overall tracks and top 5 tracks.
+    Spotify dominates over Deezer and Apple in both overall tracks and top 5 tracks.
 
 ```
 
@@ -382,11 +462,17 @@ plt.grid(axis = 'y',linestyle = '--', linewidth = 0.5) #Adding a grid to the gra
 plt.tight_layout()
 plt.show()
 ```
-<img width="526" alt="23" src="https://github.com/user-attachments/assets/26270de2-4b7b-4a6d-9901-cd98f40120dc">
+<p align="center">
+  <img width="526" alt="23" src="https://github.com/user-attachments/assets/26270de2-4b7b-4a6d-9901-cd98f40120dc">
+</p>
 
 ```
 - Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
-  From the bar graph generated, in both major and minor mode, the key of C# garnered the most streams. This can be due to the a high number of tracks having the key of C#     or songs that are in the key of C# sound more pleasing compared to other keys therefore making people listen to them more.
+
+    From the bar graph generated, in both major and minor mode, the key of C# garnered the most streams. This can
+  be due to the a high number of tracks having the key of C# or songs that are in the key of C# sound more pleasing
+  compared to other keys therefore making people listen to them more.
+
 ```
 
 ```python
@@ -426,11 +512,16 @@ plt.legend() #Adding a legend
 plt.tight_layout()
 plt.show()
 ```
-<img width="546" alt="24" src="https://github.com/user-attachments/assets/d6f07da3-50fd-41e1-b2de-5fa1f2542e69">
+<p align="center">
+  <img width="546" alt="24" src="https://github.com/user-attachments/assets/d6f07da3-50fd-41e1-b2de-5fa1f2542e69">
+</p>
 
 ```
-- Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
+- Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most
+frequently appearing artists in playlists or charts.
+
   The top 10 frequently appearing artists all have much more playlists than charts.
+
 ```
 
 ## Author
