@@ -17,7 +17,6 @@ import seaborn as sns
 ## Guide Questions
 ### Overview of Dataset
 ```
-
 How many rows and columns does the dataset contain?
 What are the data types of each column? Are there any missing values?
 ```
@@ -54,8 +53,8 @@ Do certain genres or artists consistently appear in more playlists or charts?
 Perform an analysis to compare the most frequently appearing artists in playlists or charts.
 ```
 
-## Code Execution and Results
-#### Cleaning the CSV File
+# Code Execution and Results
+## Cleaning the CSV File
 ```python
 #Loading the csv file
 df = pd.read_csv('spotify-2023.csv', encoding='latin1')
@@ -168,7 +167,7 @@ final
   <img width="1206" alt="11" src="https://github.com/user-attachments/assets/0f4ca7a6-5a0a-4b61-abe1-81f4fd4fb38d">
 </p>
 
-### Overview of Dataset
+## Overview of Dataset
 ```
 - How many rows and columns does the dataset contain?
   The dataset had 953 rows × 24 columns before cleaning and 813 rows x 24 columns after cleaning.
@@ -179,7 +178,7 @@ final
 
 ```
 
-### Basic Descriptive Statistics
+## Basic Descriptive Statistics
 ```python
 #Using the .describe() function can give us basic descriptive statistics of each column
 final.describe()
@@ -256,7 +255,7 @@ print("The number of outliers in 'Artist_count column' is:",artistoutliers) #Pri
 
 ```
 
-### Top Performers
+## Top Performers
 ```python
 #Sorting the cleaned data by number of streams from highest to lowest
 #Using .head() to display only the first 5 rows
@@ -299,7 +298,7 @@ top5frequent
 
 ```
 
-### Temporal Trends
+## Temporal Trends
 ```python
 #Getting how many tracks were released each year
 trackperyear = final['Released_year'].value_counts()
@@ -357,7 +356,7 @@ plt.show()
 
 ```
 
-### Genre and Music Characteristics
+## Genre and Music Characteristics
 ```python
 #Creating a matrix for correlation to be used for the heatmap
 cor = final[['Streams','BPM','Danceability%','Energy%','Valence%','Acousticness%']]
@@ -389,7 +388,7 @@ plt.show()
 
 ```
 
-### Platform Popularity
+## Platform Popularity
 ```python
 #Getting the amount of tracks in spotify_playlists, Deezer_playlists, and apple_playlists
 playliststotal = [final['Spotify_playlists'].sum(),final['Deezer_playlists'].sum(),final['Apple_playlists'].sum()]
@@ -434,7 +433,7 @@ plt.show()
 
 ```
 
-### Advanced Analysis
+## Advanced Analysis
 ```python
 #Grouping data by minor mode and major mode and getting the sum of streams for each key
 minor = final[final['Mode'] == 'Minor'].groupby(['Key'])['Streams'].sum()
