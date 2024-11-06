@@ -18,12 +18,14 @@ import seaborn as sns
 ### Overview of Dataset
 ```
 How many rows and columns does the dataset contain?
-What are the data types of each column? Are there any missing values?
+What are the data types of each column?
+Are there any missing values?
 ```
 ### Basic Descriptive Statistics
 ```
 What are the mean, median, and standard deviation of the streams column?
-What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
+What is the distribution of released_year and artist_count?
+Are there any noticeable trends or outliers?
 ```
 ### Top Performers
 ```
@@ -169,11 +171,14 @@ final
 ## Overview of Dataset
 ```
 - How many rows and columns does the dataset contain?
-  The dataset had 953 rows × 24 columns before cleaning and 813 rows x 24 columns after cleaning.
+
+    The dataset had 953 rows × 24 columns before cleaning and 813 rows x 24 columns after cleaning.
 
 - What are the data types of each column? Are there any missing values?
-  Before cleaning the dataset, all columns are int64 data type except for 'track_name', 'artist(s)_name',
-  'streams', 'in_deezer_playlists', 'in_shazam_charts', 'key', and 'mode' are of object data type.
+
+    Before cleaning the dataset, all columns are int64 data type except for 'track_name', 'artist(s)_name', 'streams',
+  'in_deezer_playlists', 'in_shazam_charts', 'key', and 'mode' are of object data type. There were missing values in the
+  'streams', 'in_shazam_charts', and 'key' column.
 
 ```
 
@@ -469,7 +474,7 @@ plt.show()
 
     From the bar graph generated, in both major and minor mode, the key of C# garnered the most streams. This can
   be due to the a high number of tracks having the key of C# or songs that are in the key of C# sound more pleasing
-  compared to other keys therefore making people listen to them more.
+  compared to other keys.
 
 ```
 
@@ -522,7 +527,25 @@ frequently appearing artists in playlists or charts.
 
 ```
 
+## Insights
+`Loading the csv file using the pd.read_csv() function was did not suffice due to the data having characters outside of the  ASCII range. To fix this, simply add encoding='latin1', encoding='iso-8859-1' or encoding='cp1252' at the end of the function.`
+
+`Upon cleaning the data, it is found to have missing values (Null/NaN values), object data types in the columns 'streams', 'in_deezer_playlists' and 'in_shazam_charts' which should only have numeric values (int or float), and also 3 rows which have duplicates in the 'track_name' and 'artist(s)_name' column. All of these can be error in the collection of data, especially the object data types.`
+
+`Upon visualizing the data for temporal trends, it can be deduced that there is no pattern in the month of release of the song. However, there is a noticable spike in teh streams of songs released in the years ranging 2019 - 2023. This is natural as the data is from streams during the year 2023. This indicates that the majority of users listen to more recent released songs.`
+
+`From the generated heatmap of the correlation between streams and musical attributes, all correlations are close to 0 . This indicates that there is little to no correlation or no correlation at all between streams and any of the musical attributes.`
+
+`Spotify dominated in both playlists and tracks of all the songs in the data. This can be due to the date being collected mainly from Spotify.`
+
+`In all keys, major mode had more views than minor mode. This indicates that the majority of listeners have a preference to songs in major mode regardless of the key of the song.`
+
+## Recommendations
+`In the "Genre and Music Characteristics" section, it noteworthy that while the generated correlations from the heatmap are negative, this should be treated as positive as a song can't lose streams. The negative correlation can be due to the heatmap having a low value of -1 . One way to fix this is to change the low value to 0 so that no correlation will be negative.`
+
+`In the "Advanced Analysis" section, since majority of the users are listening to recently released songs, it would be better to also have a comparison of the songs from the last 20 years and see which key and what mode is best tailored to the preferences of the users.`
 ## Author
+
 #### Lorenzo G. Viacrucis
 #### 2ECE-D
 
